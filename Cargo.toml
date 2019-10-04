@@ -1,0 +1,39 @@
+[package]
+name = "base64-option"
+version = "0.1.0"
+authors = ["Cristian Re <recris@amazon.com>"]
+edition = "2018"
+
+[dependencies]
+env_logger = "0.6"
+log = "0.4.6"
+
+serde = "1.0"
+serde_derive = "1.0"
+serde_json = "1.0"
+derive_more = "0.15.0"
+
+actix-rt = "0.2"
+actix-web = "1.0.0"
+actix-identity = "0.1.0"
+actix-multipart = "0.1.2"
+futures = "0.1.27"
+
+base64 = "0.10.1"
+base64-serde = "0.3.2"
+
+# The development profile, used for `cargo build`
+[profile.dev]
+opt-level = 0  # Controls the --opt-level the compiler builds with
+debug = true   # Controls whether the compiler passes `-g`
+# The release profile, used for `cargo build --release`
+[profile.release]
+opt-level = 3
+debug = false
+
+[dev-dependencies]
+cargo-edit = "0.3.3"
+
+[[bin]]
+name = "base64-option"
+path = "src/main.rs"
